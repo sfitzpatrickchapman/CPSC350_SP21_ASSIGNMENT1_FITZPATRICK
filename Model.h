@@ -1,3 +1,5 @@
+#ifndef MODEL_H
+#define MODEL_H
 #include <iostream>
 #include <string>
 using namespace std;
@@ -7,6 +9,7 @@ public:
   Model(); //default constructor
   ~Model(); //destructor
   string translateSingleCharacter(char userChar);
-  string translateDoubleCharacter(char userChars); //rename to string?
-private:
+  string translateDoubleCharacter(char userChars);
 };
+
+#endif

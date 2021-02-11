@@ -1,16 +1,13 @@
 #include "Model.h"
 
-Model::Model() { //default constructor
-}
+Model::Model() {} //default constructor
+Model::~Model() {} //destructor
 
-Model::~Model() { //destructor
-}
 
 string Model::translateSingleCharacter(char inputChar) {
-  /*returns a string representing its encoding in tutnese capitalilization
-  should be preserved */
   string returnString;
-
+  /* Finds the corresponding translation for each consonant. Switch inputs are
+  converted to lowercase for standardization */
   switch(tolower(inputChar)) {
     case 'b':
       returnString = "bub";
@@ -76,74 +73,107 @@ string Model::translateSingleCharacter(char inputChar) {
       returnString = "zub";
       break;
     default: //return the original input if it isn't a consonant
-      returnString = returnString + inputChar;
-      break;
+      return returnString + inputChar;
   }
 
-  if (isupper(inputChar)) //if uppercase, use capitalilization for tutnese
+  /* If uppercase, use capitalilization for first tutnese letter */
+  if (isupper(inputChar))
     returnString[0] = toupper(returnString[0]);
 
   return returnString;
 }
 
+
 string Model::translateDoubleCharacter(char inputChar) {
-  /* takes a single character as input that appears twice in a row and returns
-  a string representing its encoding in Tutnese. Capitalilization should be
-  preserved */
+  string returnString;
+  /* Finds the corresponding translation for a doubled letter represented by
+  a single char. Switch inputs converted to lowercase for standardization */
   switch(tolower(inputChar)) {
     case 'a':
-      return "squata";
+      returnString = "squata";
+      break;
     case 'b':
-      return "squab";
+      returnString = "squab";
+      break;
     case 'c':
-      return "squac";
+      returnString = "squac";
+      break;
     case 'd':
-      return "squad";
+      returnString = "squad";
+      break;
     case 'e':
-      return "squate";
+      returnString = "squate";
+      break;
     case 'f':
-      return "squaf";
+      returnString = "squaf";
+      break;
     case 'g':
-      return "squag";
+      returnString = "squag";
+      break;
     case 'h':
-      return "squah";
+      returnString = "squah";
+      break;
     case 'i':
-      return "squati";
+      returnString = "squati";
+      break;
     case 'j':
-      return "squaj";
+      returnString = "squaj";
+      break;
     case 'k':
-      return "squak";
+      returnString = "squak";
+      break;
     case 'l':
-      return "squal";
+      returnString = "squal";
+      break;
     case 'm':
-      return "squam";
+      returnString = "squam";
+      break;
     case 'n':
-      return "squan";
+      returnString = "squan";
+      break;
     case 'o':
-      return "squato";
+      returnString = "squato";
+      break;
     case 'p':
-      return "squap";
+      returnString = "squap";
+      break;
     case 'q':
-      return "squaq";
+      returnString = "squaq";
+      break;
     case 'r':
-      return "squar";
+      returnString = "squar";
+      break;
     case 's':
-      return "squas";
+      returnString = "squas";
+      break;
     case 't':
-      return "squat";
+      returnString = "squat";
+      break;
     case 'u':
-      return "squatu";
+      returnString = "squatu";
+      break;
     case 'v':
-      return "squav";
+      returnString = "squav";
+      break;
     case 'w':
-      return "squaw";
+      returnString = "squaw";
+      break;
     case 'x':
-      return "squax";
+      returnString = "squax";
+      break;
     case 'y':
-      return "squay";
+      returnString = "squay";
+      break;
     case 'z':
-      return "squaz";
-    default:
-      return "";
+      returnString = "squaz";
+      break;
+    default: //return the non-letter doubled (since 2nd index will be skipped)
+      return returnString + inputChar + inputChar;
   }
+
+  /* If uppercase, use capitalilization for first tutnese letter */
+  if (isupper(inputChar))
+    returnString[0] = toupper(returnString[0]);
+
+  return returnString;
 }
